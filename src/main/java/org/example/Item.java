@@ -4,10 +4,10 @@ public abstract class Item {
     private String name;
     private Producent producent;
     private int discountValue;
-    private float price;
+    private double price;
     private AdvancementLevel advancementLevel;
 
-    public Item(String name, Producent producent, int discountValue, float price, AdvancementLevel advancementLevel) {
+    public Item(String name, Producent producent, int discountValue, double price, AdvancementLevel advancementLevel) {
         this.name = name;
         this.producent = producent;
         this.discountValue = discountValue;
@@ -27,7 +27,7 @@ public abstract class Item {
         return discountValue;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
