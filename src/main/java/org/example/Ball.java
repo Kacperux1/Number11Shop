@@ -4,8 +4,8 @@ public class Ball extends Item{
     private int size;
     private BallType type;
 
-    public Ball(String name, Producent producent, int discountValue, float price, AdvancementLevel advancementLevel, int size, BallType type) {
-        super(name, producent, discountValue, price, advancementLevel);
+    public Ball(int id, String name, Producent producent, int discountValue, float price, AdvancementLevel advancementLevel, int size, BallType type) {
+        super(id, name, producent, discountValue, price, advancementLevel);
         this.size = size;
         this.type = type;
     }

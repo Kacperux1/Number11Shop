@@ -1,13 +1,15 @@
 package org.example;
 
 public abstract class Item {
+    private int id;
     private String name;
     private Producent producent;
     private int discountValue;
     private double price;
     private AdvancementLevel advancementLevel;
 
-    public Item(String name, Producent producent, int discountValue, double price, AdvancementLevel advancementLevel) {
+    public Item(int id, String name, Producent producent, int discountValue, double price, AdvancementLevel advancementLevel) {
+        this.id = id;
         this.name = name;
         this.producent = producent;
         this.discountValue = discountValue;

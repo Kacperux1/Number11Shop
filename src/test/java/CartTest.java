@@ -13,7 +13,7 @@ public class CartTest {
         Client client = new Client(1, "Wiesław", "Puchacki", "123456789", "jp100@hwdp.pl");
         MainOrderManager manager = new MainOrderManager();
         Cart cart = new Cart(client, manager);
-        Item boots = new Boot("cichobiegi",Nike,0, 415.99,  professional, FirmGround,45.5);
+        Item boots = new Boot(01, "cichobiegi",Nike,0, 415.99,  professional, FirmGround,45.5);
         manager.addItem(cart, boots);
         assertEquals(cart.getItems().size(), 1);
         assertEquals(cart.getItems().get(0), boots);
