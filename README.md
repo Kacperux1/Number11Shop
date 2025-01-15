@@ -12,7 +12,8 @@ Project building tool: Gradle
 
 Database : MySQL
 
-Front-end technologies: TBA
+Front-end technologies: TBA (possibly React/Vue)
 
 Containers and runtime enviroment: TBA
+(possibly Docker)
 
