@@ -1,19 +1,19 @@
 # Number11Shop
-Number11 is a web (client - server) aplication in a form of a website, where customers can buy various football accesories.
+Number11 is a web (frontend - backend) application  where customers can buy various football accesories.
 
 
 Technological Stack:
 
-Programming Language: Java
-
-Framework: Spring /Spring Boot
-
-Project building tool: Gradle
-
-Database : MySQL
-
-Front-end technologies: TBA (possibly React/Vue)
-
-Containers and runtime enviroment: TBA
-(possibly Docker)
+  Programming Language: Java 23
+  
+  Framework: Spring /Spring Boot
+  
+  Project building tool: Gradle
+  
+  Database : PostgresSQL
+  
+  Front-end technologies: TBA (possibly React/Vue)
+  
+  Containers and runtime enviroment: TBA
+  (possibly Docker)
 
