@@ -3,6 +3,7 @@ package pl.number11shop.Item.data;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 
@@ -13,6 +14,7 @@ public class Item {
     @Id
     @GeneratedValue
     @Column(name = "item_id")
+    @ColumnDefault("gen_random_uuid()")
     private int itemId;
     @Column(name = "model", length = 30)
     private String model;

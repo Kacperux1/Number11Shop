@@ -22,7 +22,6 @@ public class Copy {
     @JoinColumn(name = "item_id", referencedColumnName = "item_id", nullable = false)
     private Item item;
     @Column(name = "size", length = 20)
-    @Enumerated(EnumType.STRING)
     private String size;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "order_id", referencedColumnName = "order_id", nullable = false)

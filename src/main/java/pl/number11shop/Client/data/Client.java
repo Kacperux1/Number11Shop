@@ -18,23 +18,26 @@ public class Client {
     private String firstName;
     @Column(name = "last_name", nullable=false, length = 30)
     private String lastName;
-    @Column(name = "phone_number",  length = 11)
+    @Column(name = "phone_number",  length = 9)
     private String phoneNumber;
     @Column(name = "city", nullable=false, length = 30)
     private String city;
     @Column(name = "street", nullable=false, length = 30)
     private String street;
+    @Column(name = "house_number", nullable = false, length=10)
+    private String houseNumber;
     @Column(name = "postal_code", nullable=false, length = 6)
     private String postalCode;
 
     public Client(String email, String firstName, String lastName,
-                  String phoneNumber, String city, String street, String postalCode) {
+                  String phoneNumber, String city, String street, String houseNumber, String postalCode) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.city = city;
         this.street = street;
+        this.houseNumber = houseNumber;
         this.postalCode = postalCode;
     }
 

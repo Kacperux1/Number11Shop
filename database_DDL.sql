@@ -5,9 +5,10 @@ CREATE TABLE clients
     email        VARCHAR(50) PRIMARY KEY NOT NULL,
     first_name   VARCHAR(20)             NOT NULL,
     last_name    VARCHAR(30)             NOT NULL,
-    phone_number VARCHAR(11),
+    phone_number VARCHAR(9),
     city         VARCHAR(30)             NOT NULL,
     street       VARCHAR(30)             NOT NULL,
+    house_number varchar(10)              NOT NULL,
     postal_code  VARCHAR(6)              NOT NULL
 );
 
@@ -56,6 +57,10 @@ CREATE TABLE copies
     FOREIGN KEY (order_id) REFERENCES orders (order_id)
 );
 
+insert into clients values('stachu@jones.com', 'Janusz', 'Brzęszczysczykiewicz', '123456789'
+                          ,'Warszawa', 'Wojska Polskiego', '54','00-999');
+
+drop table clients cascade;
 
 
 
