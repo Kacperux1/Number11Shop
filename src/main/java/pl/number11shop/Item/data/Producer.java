@@ -1,10 +1,7 @@
 package pl.number11shop.Item.data;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Getter
@@ -14,8 +11,9 @@ public class Producer {
 
     @Id
     @Column(name = "producer_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    @Column(name = "name")
+    @Column(name = "name", length = 30, nullable = false)
     private String name;
 
     public Producer(String name) {

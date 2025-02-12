@@ -12,19 +12,19 @@ import lombok.Getter;
 @Table(name = "clients")
 public class Client {
     @Id
-    @Column(name = "email")
+    @Column(name = "email", nullable = false, length = 50)
     private String email;
-    @Column(name = "first_name")
+    @Column(name = "first_name",nullable=false, length = 20)
     private String firstName;
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable=false, length = 30)
     private String lastName;
-    @Column(name = "phone_number")
+    @Column(name = "phone_number",  length = 11)
     private String phoneNumber;
-    @Column(name = "city")
+    @Column(name = "city", nullable=false, length = 30)
     private String city;
-    @Column(name = "street")
+    @Column(name = "street", nullable=false, length = 30)
     private String street;
-    @Column(name = "postal_code")
+    @Column(name = "postal_code", nullable=false, length = 6)
     private String postalCode;
 
     public Client(String email, String firstName, String lastName,

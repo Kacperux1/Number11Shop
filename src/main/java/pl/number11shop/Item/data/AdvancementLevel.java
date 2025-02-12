@@ -1,26 +1,20 @@
 package pl.number11shop.Item.data;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
-@Getter
-@Entity
-@Table(name = "advancement_levels")
-public class AdvancementLevel {
+public enum AdvancementLevel {
+    RECREATIONAL("recreational"),
+    AMATEUR("amateur"),
+    SEMI_PRO("semi-pro"),
+    PROFFESIONAL("proffesional");
 
-    @Id
-    @Column(name = "advancement_id")
-    private int advancementId;
-    @Column(name = "level")
-    private String level;
-
-    public AdvancementLevel(String level) {
-        this.level = level;
-        this.advancementId = 0;
+    private final String value;
+    AdvancementLevel(String value) {
+        this.value = value;
     }
 
-    public AdvancementLevel() {}
+    @Override
+    public String toString() {
+        return value;
+    }
 }

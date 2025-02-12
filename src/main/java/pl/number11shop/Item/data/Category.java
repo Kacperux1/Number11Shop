@@ -1,10 +1,6 @@
 package pl.number11shop.Item.data;
 
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Getter
@@ -12,15 +8,18 @@ import lombok.Getter;
 @Table(name = "categories")
 public class Category {
     @Id
-    @Column(name = "category_id")
+    @Column(name = "category_id", nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int categoryId;
-    @Column(name = "category_name")
+    @Column(name = "category_name", nullable = false, length = 30)
     private String categoryName;
 
     public Category(String categoryName) {
         this.categoryName = categoryName;
         this.categoryId = 0;
     }
-    public Category() {}
+
+    public Category() {
+    }
 
 }

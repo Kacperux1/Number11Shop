@@ -14,18 +14,18 @@ public class Item {
     @GeneratedValue
     @Column(name = "item_id")
     private int itemId;
-    @Column(name = "model")
+    @Column(name = "model", length = 30)
     private String model;
     @ManyToOne
-    @JoinColumn(name = "category_id", referencedColumnName = "category_id")
+    @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false)
     private Category category;
     @Column(name = "price")
     private BigDecimal price;
-    @ManyToOne
-    @JoinColumn(name = "advancement_id", referencedColumnName = "advancement_id")
+    @Column(name = "advancement", length = 20, nullable = false)
+    @Enumerated(EnumType.STRING)
     private AdvancementLevel advancementLevel;
     @ManyToOne
-    @JoinColumn(name ="producer_id", referencedColumnName = "producer_id")
+    @JoinColumn(name ="producer_id", referencedColumnName = "producer_id", nullable = false)
     private Producer producer;
 
     public Item(String model, Category category, BigDecimal price, AdvancementLevel advancementLevel, Producer producer) {
