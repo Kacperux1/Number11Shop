@@ -1,9 +1,15 @@
 services:
-  postgres:
-    image: 'postgres:latest'
+  db:
+    image: postgres:17
+    restart: always
     environment:
-      - 'POSTGRES_DB=mydatabase'
-      - 'POSTGRES_PASSWORD=secret'
-      - 'POSTGRES_USER=myuser'
+      POSTGRES_DB: Number11Shop
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
     ports:
-      - '5432'
+      - "5455:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/database_DDL.sql
+      - db_data:/var/lib/postgresql/data
+volumes:
+  db_data:
