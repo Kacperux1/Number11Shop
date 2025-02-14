@@ -8,7 +8,7 @@ import pl.number11shop.Order.data.Order;
 
 import java.util.UUID;
 
-@Getter
+
 @Entity
 @Table(name = "copies")
 public class Copy {
@@ -34,5 +34,21 @@ public class Copy {
     }
 
     public Copy() {
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public Order getOrder() {
+        return order;
     }
 }

@@ -7,7 +7,7 @@ import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 
-@Getter
+
 @Entity
 @Table(name = "items")
 public class Item {
@@ -18,7 +18,7 @@ public class Item {
     private int itemId;
     @Column(name = "model", length = 30)
     private String model;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "category_id", referencedColumnName = "category_id", nullable = false)
     private Category category;
     @Column(name = "price")
@@ -26,7 +26,7 @@ public class Item {
     @Column(name = "advancement", length = 20, nullable = false)
     @Enumerated(EnumType.STRING)
     private AdvancementLevel advancementLevel;
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name ="producer_id", referencedColumnName = "producer_id", nullable = false)
     private Producer producer;
 
@@ -40,5 +40,29 @@ public class Item {
 
     public Item() {
 
+    }
+
+    public int getItemId() {
+        return itemId;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public AdvancementLevel getAdvancementLevel() {
+        return advancementLevel;
+    }
+
+    public Producer getProducer() {
+        return producer;
     }
 }

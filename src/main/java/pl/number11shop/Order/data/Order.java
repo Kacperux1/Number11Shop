@@ -7,7 +7,7 @@ import pl.number11shop.Client.data.Client;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Getter
+
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -37,5 +37,25 @@ public class Order {
 
     public Order() {
 
+    }
+
+    public UUID getOrderId() {
+        return orderId;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public LocalDateTime getConfirmationDate() {
+        return confirmationDate;
+    }
+
+    public LocalDateTime getShipmentDate() {
+        return shipmentDate;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
     }
 }
