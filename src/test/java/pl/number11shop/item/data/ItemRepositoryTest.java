@@ -8,8 +8,7 @@ import pl.number11shop.Item.data.*;
 
 import java.math.BigDecimal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 @DataJpaTest
@@ -24,26 +23,40 @@ public class ItemRepositoryTest {
     @Test
     public void shouldAddItem() {
         //g
-        var item =  new Item("Phantom X 3", category, BigDecimal.valueOf(99.99), AdvancementLevel.PROFFESIONAL,
+        var item =  new Item("Phantom X 3", category, BigDecimal.valueOf(99.99), AdvancementLevel.PROFESSIONAL,
                 producer);
         //w
-        var readItem = itemRepository.save(item);
+        var savedItemId = itemRepository.save(item).getItemId();
+        var readItem = itemRepository.findById(savedItemId);
         //t
-        assertNotNull(readItem);
-        assertEquals("Phantom X 3", readItem.getModel());
-        assertEquals("Nike", readItem.getProducer().getName());
+        assertTrue(readItem.isPresent());
+        assertEquals("Phantom X 3", readItem.get().getModel());
+        assertEquals("Nike", readItem.get().getProducer().getName());
     }
 
     @Test
     public void shouldFindItemByModel() {
         //g
-        var item =  new Item("Phantom X 3", category, BigDecimal.valueOf(99.99), AdvancementLevel.PROFFESIONAL,
+        var item =  new Item("Phantom X 3", category, BigDecimal.valueOf(99.99), AdvancementLevel.PROFESSIONAL,
                 producer);
         //w
         var readItem = itemRepository.save(item).getItemId();
         var foundItem = itemRepository.findByModel("Phantom X 3");
         //then
-        assertNotNull(foundItem);
-
+        assertFalse(foundItem.isEmpty());
+        assertEquals(BigDecimal.valueOf(99.99), foundItem.get().getPrice());
     }
+
+    @Test
+    public void shouldNotFindItemByModel() {
+        //g
+        var item =  itemRepository.save(new Item("Tiempo 100", category, BigDecimal.valueOf(99.99), AdvancementLevel.PROFESSIONAL,
+                producer));
+        //w
+        var foundItem = itemRepository.findByModel("Phantom X 3");
+        //then
+        assertTrue(foundItem.isEmpty());
+    }
+
+
 }

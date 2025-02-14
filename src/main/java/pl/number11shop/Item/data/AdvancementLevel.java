@@ -6,7 +6,7 @@ public enum AdvancementLevel {
     RECREATIONAL("recreational"),
     AMATEUR("amateur"),
     SEMI_PRO("semi-pro"),
-    PROFFESIONAL("proffesional");
+    PROFESSIONAL("professional");
 
     private final String value;
     AdvancementLevel(String value) {

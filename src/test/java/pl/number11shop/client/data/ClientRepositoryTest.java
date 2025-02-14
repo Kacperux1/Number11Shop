@@ -32,10 +32,10 @@ public class ClientRepositoryTest {
         //when
         var foundClient = clientRepository.findByEmail("stachu@jones.com");
         //then
-        assertNotNull(foundClient);
-        assertEquals("Janusz", foundClient.getFirstName());
-        assertEquals("Wons", foundClient.getLastName());
-        assertEquals("123456789", foundClient.getPhoneNumber());
+        assertTrue(foundClient.isPresent());
+        assertEquals("Janusz", foundClient.get().getFirstName());
+        assertEquals("Wons", foundClient.get().getLastName());
+        assertEquals("123456789", foundClient.get().getPhoneNumber());
     }
 
     @Test
@@ -46,7 +46,7 @@ public class ClientRepositoryTest {
         //when
         var foundClient = clientRepository.findByEmail("beethoven@classic.com");
         //then
-        assertNull(foundClient);
+        assertTrue(foundClient.isEmpty());
 
     }
 
@@ -58,9 +58,9 @@ public class ClientRepositoryTest {
         //when
         var foundClient = clientRepository.findByLastName("Wons");
         //then
-        assertNotNull(foundClient);
-        assertEquals("Janusz", foundClient.getFirstName());
-        assertEquals("stachu@jones.com", foundClient.getEmail());
+        assertTrue(foundClient.isPresent());
+        assertEquals("Janusz", foundClient.get().getFirstName());
+        assertEquals("stachu@jones.com", foundClient.get().getEmail());
     }
 
     @Test

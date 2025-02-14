@@ -6,16 +6,17 @@ import lombok.Getter;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
-
+@Getter
 @Entity
 @Table(name = "items")
 public class Item {
     @Id
     @GeneratedValue
     @Column(name = "item_id")
-    @ColumnDefault("gen_random_uuid()")
-    private int itemId;
+    //@ColumnDefault("gen_random_uuid()")
+    private UUID itemId;
     @Column(name = "model", length = 30)
     private String model;
     @ManyToOne(cascade=CascadeType.PERSIST)
@@ -40,29 +41,5 @@ public class Item {
 
     public Item() {
 
-    }
-
-    public int getItemId() {
-        return itemId;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public AdvancementLevel getAdvancementLevel() {
-        return advancementLevel;
-    }
-
-    public Producer getProducer() {
-        return producer;
     }
 }
