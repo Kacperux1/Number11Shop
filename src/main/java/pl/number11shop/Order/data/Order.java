@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 
+@Getter
 @Entity
 @Table(name = "orders")
 public class Order {
@@ -16,7 +17,7 @@ public class Order {
     @GeneratedValue
     @Column(name = "order_id")
     private UUID orderId;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "email", referencedColumnName = "email")
     private Client client;
     @Column(name = "confirmation_date")
@@ -27,8 +28,7 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus status;
 
-    public Order(UUID orderId, Client client, LocalDateTime confirmationDate, LocalDateTime shipmentDate, OrderStatus status) {
-        this.orderId = orderId;
+    public Order(Client client, LocalDateTime confirmationDate, LocalDateTime shipmentDate, OrderStatus status) {
         this.client = client;
         this.confirmationDate = confirmationDate;
         this.shipmentDate = shipmentDate;
@@ -39,23 +39,4 @@ public class Order {
 
     }
 
-    public UUID getOrderId() {
-        return orderId;
-    }
-
-    public Client getClient() {
-        return client;
-    }
-
-    public LocalDateTime getConfirmationDate() {
-        return confirmationDate;
-    }
-
-    public LocalDateTime getShipmentDate() {
-        return shipmentDate;
-    }
-
-    public OrderStatus getStatus() {
-        return status;
-    }
 }

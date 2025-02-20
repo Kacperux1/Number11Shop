@@ -8,7 +8,7 @@ CREATE TABLE clients
     phone_number VARCHAR(9),
     city         VARCHAR(30)             NOT NULL,
     street       VARCHAR(30)             NOT NULL,
-    house_number varchar(10)              NOT NULL,
+    house_number varchar(10)             NOT NULL,
     postal_code  VARCHAR(6)              NOT NULL
 );
 
@@ -52,15 +52,16 @@ CREATE TABLE copies
     copy_id  UUID PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),
     item_id  UUID             NOT NULL,
     size     varchar(20)      NOT NULL,
-    order_id UUID             NOT NULL,
+    order_id UUID,
     FOREIGN KEY (item_id) REFERENCES items (item_id),
     FOREIGN KEY (order_id) REFERENCES orders (order_id)
 );
 
-insert into clients values('stachu@jones.com', 'Janusz', 'Brzęszczysczykiewicz', '123456789'
-                          ,'Warszawa', 'Wojska Polskiego', '54','00-999');
+insert into clients
+values ( 'stachu@jones.com', 'Janusz', 'Brzęszczysczykiewicz', '123456789'
+       , 'Warszawa', 'Wojska Polskiego', '54', '00-999');
 
-drop table clients cascade;
+
 
 
 

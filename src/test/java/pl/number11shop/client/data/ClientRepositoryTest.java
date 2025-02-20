@@ -71,6 +71,24 @@ public class ClientRepositoryTest {
         //when
         clientRepository.delete(savedClient);
         var deletedClient  = clientRepository.findByEmail("stachu@jones.com");
+        //then
         assertNull(deletedClient);
     }
+
+    @Test
+    public void shouldFindClientByPhoneNumber() {
+        //given
+       clientRepository.save(new Client("stachu@jones.com", "Janusz", "Wons","123456789", "Warszawa", "Wojska Polskiego",
+                "54", "27-570"));
+       //when
+        var foundClient = clientRepository.findByPhoneNumber("123456789");
+        var foundAbsentClient = clientRepository.findByPhoneNumber("987654321");
+        //then
+        assertTrue(foundClient.isPresent());
+        assertFalse(foundAbsentClient.isPresent());
+        assertEquals("Janusz", foundClient.get().getFirstName());
+        assertEquals("Wons", foundClient.get().getLastName());
+    }
+
+
 }

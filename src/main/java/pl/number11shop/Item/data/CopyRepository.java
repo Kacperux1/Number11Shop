@@ -10,9 +10,11 @@ import java.util.UUID;
 
 public interface CopyRepository extends CrudRepository<Copy, UUID> {
 
-    Optional<List<Copy>> findBySize(String size);
+    List<Copy> findBySize(String size);
 
-    Optional<List<Copy>> findByOrder(Order order);
+    List<Copy> findByOrder(Order order);
 
-    Optional<List<Copy>> findByItem(Item item);
+    List<Copy> findByItem(Item item);
+
+
 }

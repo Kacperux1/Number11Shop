@@ -3,7 +3,7 @@ package pl.number11shop.Item.data;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.hibernate.annotations.ColumnDefault;
+
 
 import java.math.BigDecimal;
 import java.util.UUID;

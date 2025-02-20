@@ -14,11 +14,19 @@ public interface ItemRepository extends CrudRepository<Item, UUID> {
 
     Optional<Item> findByModel(String model);
 
-    Optional<List<Item>> findByPriceLessThan(@Param("price") BigDecimal price);
+    List<Item> findByPriceLessThan(@Param("price") BigDecimal price);
 
-    Optional<List<Item>> findByProducer(Producer producer);
+    @Query("""
+            select i from Item i
+            where i.producer.name=:producer
+            """)
+    List<Item> findByProducer(@Param("producer") String producer);
 
-    Optional<List<Item>> findByCategory(Category category);
+    @Query("""
+            select i from Item i
+            where i.category.categoryName=:category
+            """)
+    List<Item> findByCategory(@Param("category") String category);
 
-    Optional<List<Item>> findByAdvancementLevel(AdvancementLevel advancementLevel);
+    List<Item> findByAdvancementLevel(AdvancementLevel advancementLevel);
 }
