@@ -27,10 +27,6 @@ public class CopyRepositoryTest {
     private CopyRepository copyRepository;
     @Autowired
     private ItemRepository itemRepository;
-    @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private ClientRepository clientRepository;
 
     private final Client client = new Client("john@doe.com", "Steve", "Jobs",
             "123456789", "New Jersey", "Manure Water", "3/4",
